@@ -1,3 +1,4 @@
+import AddTaskForm from './components/Form';
 import React, { useState } from 'react';
 import './App.css';
 import Task from './components/Task';
@@ -50,6 +51,7 @@ function App() {
 
             />
           ))} 
+          <AddTaskForm />
 
 
 
