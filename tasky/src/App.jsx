@@ -97,8 +97,11 @@ function App() {
               color: 'white',
               padding: '20px',
               margin: '20px 0 40px 0',
-              borderRadius: '4px'
+              borderRadius: '4px',
+              fontWeight: 'bold', 
+              color: '#4a148c'
             }}
+            
           >
             Tasky
           </Typography>

@@ -6,6 +6,11 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip';
+
+
+
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Task = (props) => {
 
@@ -16,15 +21,20 @@ const Task = (props) => {
         >
             <Card
                 sx={{
-                backgroundColor: props.done ? 'lightgrey' : 'lightblue',
-                padding: '20px'
+                backgroundColor: props.done ? '#e0e0e0' : '#f3e5f5',
+                border: '2px solid #7b1fa2',
+                borderRadius: '12px',
+                padding: '20px',
+                boxShadow: 3
                 }}
             >
                 <CardHeader
                 title={props.title}
                 sx={{
-                    backgroundColor: 'white',
-                    borderRadius: '3px',
+                    backgroundColor: '#7b1fa2',
+                    color: 'white',
+                    fontWeight: 'bold',
+                    borderRadius: '8px',
                     padding: '20px',
                     textAlign: 'center'
                 }}
@@ -41,12 +51,20 @@ const Task = (props) => {
                     }}
                 >
                     <Typography
-                    component="p"
-                    variant="subtitle2"
-                    color="text.primary"
+                        component="p"
+                        variant="subtitle2"
+                        sx={{ fontWeight: 'bold', color: '#4a148c' }}
                     >
-                    Due: {props.deadline}
+                        Due: {props.deadline}
                     </Typography>
+                </Box>
+
+                <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                    <Chip
+                        label={props.done ? "Completed" : "Pending"}
+                        color={props.done ? "success" : "warning"}
+                        size="small"
+                    />
                 </Box>
 
                 <Typography
@@ -78,7 +96,9 @@ const Task = (props) => {
                     variant="contained"
                     size="small"
                     color="error"
+                    startIcon={<DeleteIcon />}
                     onClick={props.deleteTask}
+                    sx={{ borderRadius: '20px', textTransform: 'none' }}
                 >
                     Delete
                 </Button>
